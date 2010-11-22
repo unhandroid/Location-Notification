@@ -53,6 +53,7 @@ public class LocationInfo
     	this.location = location;
     	this.geocoder = geocoder;
     	distanceFromLastLocation = 0;
+    	altitude = -1;
     	
     	if( location != null )
     	{
@@ -136,15 +137,16 @@ public class LocationInfo
 			//sb.append( "Time: " ).append( time );
 			sb.append( calendar.getTime() );
 			sb.append( "\nLatitude: ").append(latString ); 
-	        sb.append( ", Longitude: " ).append( longString );
+	        sb.append( "\nLongitude: " ).append( longString );
+	        sb.append( "\nAltitude: " ).append( altitude );
 	        sb.append( "\nDistance from Last Location: " );
 	        sb.append( distanceFromLastLocation ).append( " M" );
 	        sb.append( "\n\nAddress: ").append( address );
 	        sb.append( "\n\nMap Link: " ).append( mapLink );
 	        sb.append( "\n\nProvider: ").append( provider );
 	        sb.append( "\nAccuracy: " ).append( accuracy ).append( "M" );
-	        sb.append( "\nBearing: " ).append( bearing );
-	        sb.append( "\nAltitude: " ).append( altitude );
+	        sb.append( "\nBearing: " ).append( bearing );	        
+	        sb.append( "\nEND OF LOCATION INFO" );
     	}
     	else
     	{
@@ -154,6 +156,29 @@ public class LocationInfo
     	
     	return sb.toString();
 	}
+	
+	/**
+	 * Returns latitude, longitude, altitude (optional) string that will be
+	 * used on the Server to update the KML file.
+	 * 
+	 * NOTE: No spaces allowed between commas and values!
+	 * 
+	 * @return A line containing info for the KML file.
+	 */
+    public String getKMLCoordinatesString()
+    {
+
+		StringBuilder sb = new StringBuilder();
+		
+		sb.append( latitude ).append( "," ).append( longitude );
+		
+		if( altitude != -1 )
+		{
+			sb.append( "," ).append( altitude ); 
+		}
+		
+		return sb.toString();
+    }
 		   
     // Creates a google static map link using latitude/longitude info
     private String createLink( String lat, String lon )

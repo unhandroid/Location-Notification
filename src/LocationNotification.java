@@ -279,6 +279,7 @@ public class LocationNotification extends Activity
 		lastLatitudeReading = locationInfo.getLatitude();
 		lastLongitudeReading = locationInfo.getLongitude();
     }
+
     
     /**
      * Calculates the new average distance since last reading.
@@ -507,7 +508,9 @@ public class LocationNotification extends Activity
             if( socket.isConnected() )
             {   
                 // Send location information to the server
-                out.println( locationInfo.getLocationInfoString() );
+                //out.println( locationInfo.getLocationInfoString() );
+            	out.println( locationInfo.getKMLCoordinatesString() );
+
             }
             else
             {

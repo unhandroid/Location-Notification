@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://earth.google.com/kml/2.0">
+<Document><name>Location Notification Sample KML</name>
+<description>Displays all location notifications received</description>
+
+<Placemark><name>Placemark_0</name><Point><coordinates>43.13172,-70.986064,0</coordinates></Point></Placemark>
+
+</Document>
+</kml>
