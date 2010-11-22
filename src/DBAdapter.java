@@ -13,7 +13,7 @@ import android.util.Log;
  * Reference: http://www.devx.com/wireless/Article/40842 
  * 
  * @author Matthew Robinson
- *
+ * @date 2010
  */
 public class DBAdapter 
 {
